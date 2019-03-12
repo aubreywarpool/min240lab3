@@ -1,0 +1,103 @@
+<html>
+<head></head>
+<style>
+    #startScreen{
+        position:absolute;
+        top:30vh;
+        left:10vw;
+        width:80vw;
+        height:40vh;
+        background-color:orange;
+        border-radius:15%;
+    }
+    #gameScreen{
+        position:absolute;
+        left:5vw;
+        width:90vw;
+        height:80vh;
+        background-color:skyblue;
+        display:none;
+    }
+    #endScreen{
+        position:absolute;
+        top:30vh;
+        left:10vw;
+        width:80vw;
+        height:40vh;
+        background-color:pink;
+        display: none;
+    }
+    #startButton{
+        position:absolute;
+        top:10vmin;
+        left:25vmin;
+        width:30vmin;
+        height:15vmin;
+        background-color: green;
+        border-radius:15%;
+        cursor: pointer;
+        user-select: none;
+    }
+    #waterCan{
+        position:absolute;
+        height:10vh;
+        width:10vw;
+        background-color: blue;
+        top:15vh;
+        left:40vw;
+    }
+    #flowerTop{
+        position:absolute;
+        height:7vh;
+        width:7vw;
+        background-color: pink;
+        top:55vh;
+        left:27vw;
+        border-radius: 50%;
+    }
+</style>
+<body>
+
+<div id="startScreen"><div id="startButton"> start </div></div>
+<div id="gameScreen"><div id="waterCan"></div><div id="flowerTop"></div></div>
+<div id="endScreen"></div>
+
+</body>
+<script>
+    var myStartScreen;
+    myStartScreen = document.querySelector("#startScreen"); 
+    
+    var myGameScreen;
+    myGameScreen = document.querySelector("#gameScreen"); 
+    
+    var myEndScreen;
+    myEndScreen = document.querySelector("#endScreen");
+    
+    var myStartButton;
+    myStartButton = document.querySelector("#startButton");
+    myStartButton.addEventListener("click", hideStartShowGame, false);
+    myStartButton.style.fontSize = "3em";
+    myStartButton.style.textAlign = "center";
+    
+    
+    var myWaterCan;
+    myWaterCan = document.querySelector("#waterCan");
+    myWaterCan.addEventListener("click", flowerGrow, false);
+    
+    var flowerTop;
+    flowerTop = document.querySelector("#flowerTop");
+    
+    var flowerTopPosition = 0;
+    
+    function flowerGrow(){
+        flowerTopPosition = flowerTopPosition - 20;
+        flowerTop.style.transform = "translateY("+flowerTopPosition+"%)";
+    }
+    
+    function hideStartShowGame(){
+        myStartScreen.style.display = "none";
+        myGameScreen.style.display = "block";
+    }
+
+</script>
+</html>
