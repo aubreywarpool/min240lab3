@@ -1,66 +1,194 @@
 <html>
-<head></head>
+<head><link href="https://fonts.googleapis.com/css?family=Dosis:800" rel="stylesheet"></head>
 <style>
     #startScreen{
-        position:absolute;
-        top:30vh;
-        left:10vw;
-        width:80vw;
-        height:40vh;
+        font-family: 'Dosis', sans-serif;
+        color:ghostwhite;
+        position:relative;
+        margin-left: auto;
+        margin-right: auto;
+        width:50vw;
+        height:70vh;
         background-color:orange;
-        border-radius:15%;
+        text-align: center;
+        padding-top: 10vmin;
     }
     #gameScreen{
-        position:absolute;
-        left:5vw;
-        width:90vw;
-        height:80vh;
-        background-color:skyblue;
+        position:relative;
+        margin-left: auto;
+        margin-right: auto;
+        width:50vw;
+        height:73vh;
         display:none;
+        background-image:url(https://static.vecteezy.com/system/resources/previews/000/090/476/original/free-rolling-hills-with-sunflowers-vector.jpg);
+        background-size:contain;
+        background-repeat: no-repeat;
+        overflow:hidden;
     }
     #endScreen{
-        position:absolute;
-        top:30vh;
-        left:10vw;
-        width:80vw;
-        height:40vh;
+        font-family: 'Dosis', sans-serif;
+        position:relative;
+        color:ghostwhite;
+        font-size:25pt;
+        margin-left: auto;
+        margin-right: auto;
+        width:50vw;
+        height:73vh;
         background-color:pink;
         display: none;
+        text-align: center;
     }
+    
     #startButton{
-        position:absolute;
-        top:10vmin;
-        left:25vmin;
-        width:30vmin;
-        height:15vmin;
+        position:relative;
+        top:10%;
+        margin-left: auto;
+        margin-right: auto;
+        width:12vmin;
+        height:7vmin;
         background-color: green;
-        border-radius:15%;
         cursor: pointer;
         user-select: none;
     }
+    #workflow{
+        position:relative;
+        top:10%;
+        font-size:18pt;
+        margin-left: auto;
+        margin-right: auto;
+        width:25vmin;
+        height:7vmin;
+        background-color: cornflowerblue;
+        cursor: pointer;
+        margin-top:5vmin;
+        user-select: none;
+    }
+    #workflowScreen{
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        background-image: url(workflow.png);
+        background-size:cover;
+        background-repeat:no-repeat;
+        height: 73vh;
+        width: 70vw;
+        display:none;
+    }
+    #workflowExit{
+        position:absolute;
+        height:6vh;
+        width:6vw;
+        background-image: url(exitbutton.png);
+        background-size:contain;
+        background-repeat:no-repeat;
+        left:65vw;
+        top:2vh;
+        cursor: pointer;
+        
+    }
     #waterCan{
         position:absolute;
-        height:10vh;
-        width:10vw;
-        background-color: blue;
+        cursor: pointer;
+        height:20vh;
+        width:20vw;
+        background-image:url(watering-can.png);
+        background-size: contain;
+        background-repeat: no-repeat;
         top:15vh;
-        left:40vw;
+        left:10vw;
+        transform:rotateY(180deg);
+    }
+    #scissors{
+        position:absolute;
+        cursor: pointer;
+        height:13vh;
+        width:13vw;
+        background-image:url(scissors.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        top:45vh;
+        left:23.5vw;
+        transform:rotateX(180deg);
     }
     #flowerTop{
         position:absolute;
+        height:12vh;
+        width:12vw;
+        background-image:url(flower.png);
+        background-size:contain;
+        background-repeat: no-repeat;
+        top:54vmin;
+        left:10vw;
+        z-index:2;
+    }
+    
+    #flowerstem{
+        position:absolute;
+        width:.5vw;
+        height:150vh;
+        background-color:darkgreen;
+        top:64vh;
+        left:12.5vw;
+    }
+    #exit{
+        position:absolute;
+        height:6vh;
+        width:6vw;
+        background-image: url(exitbutton.png);
+        background-size:contain;
+        background-repeat:no-repeat;
+        left:95vmin;
+        top:2vmin;
+        cursor: pointer;
+    }
+    #homeButton{
+        font-family: 'Dosis', sans-serif;
+        font-size:20pt;
+        color:ghostwhite;
+        position:relative;
+        cursor: pointer;
+        margin-left: auto;
+        margin-right: auto;
         height:7vh;
-        width:7vw;
-        background-color: pink;
-        top:55vh;
-        left:27vw;
-        border-radius: 50%;
+        width:10vw;
+        background-color:cornflowerblue;
+        text-align: center;
+        margin-top: 5vmin;
+        
+    }
+    #playAgain{
+        font-family: 'Dosis', sans-serif;
+        color:ghostwhite;
+        font-size:20pt;
+        position:relative;
+        cursor: pointer;
+        margin-left: auto;
+        margin-right: auto;
+        height:7vh;
+        width:10vw;
+        background-color: orange;
+        text-align:center;
+        margin-top: 5vmin;
+    }
+    #trophy{
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        height: 35vmin;
+        width: 35vmin;
+        background-image: url(iconfinder_sport_badges-05_2064041.png);
+        background-size:cover;
+        background-repeat: no-repeat;
+        margin-top: 3vmin;
+
     }
 </style>
 <body>
 
-<div id="startScreen"><div id="startButton"> start </div></div>
-<div id="gameScreen"><div id="waterCan"></div><div id="flowerTop"></div></div>
-<div id="endScreen"></div>
+    <div id="startScreen"><h1>Welcome to Aubrey's Garden!</h1><p>Make the flower grow by clicking the watering can! Trim the flower by double clicking the scissors!</p><div id="startButton">Start</div><div id = "workflow">See workflow</div></div>
+    <div id = "workflowScreen"><div id="workflowExit"></div></div>
+<div id="gameScreen"><div id="waterCan"></div><div id = "scissors"></div><div id="flowerTop"></div><div id="flowerstem"></div><div id="exit"></div></div>
+<div id="endScreen"><div id="trophy"></div>Great job!<div id="homeButton">Exit</div><div id="playAgain">Play again</div></div>
 
 </body>
 <script>
@@ -76,28 +204,94 @@
     var myStartButton;
     myStartButton = document.querySelector("#startButton");
     myStartButton.addEventListener("click", hideStartShowGame, false);
-    myStartButton.style.fontSize = "3em";
+    myStartButton.style.fontSize = "20pt";
     myStartButton.style.textAlign = "center";
     
+    function hideStartShowGame(){
+    myStartScreen.style.display = "none";
+    myGameScreen.style.display = "block";
+    }
     
+
     var myWaterCan;
     myWaterCan = document.querySelector("#waterCan");
     myWaterCan.addEventListener("click", flowerGrow, false);
+    myWaterCan.addEventListener("click", stemGrow, false);
     
     var flowerTop;
     flowerTop = document.querySelector("#flowerTop");
-    
-    var flowerTopPosition = 0;
+    var flowerTopPosition;
+    flowerTopPosition = 0;
     
     function flowerGrow(){
         flowerTopPosition = flowerTopPosition - 20;
         flowerTop.style.transform = "translateY("+flowerTopPosition+"%)";
     }
     
-    function hideStartShowGame(){
-        myStartScreen.style.display = "none";
+    var stem;
+    stem = document.querySelector("#flowerstem");
+    var stemPosition;
+    stemPosition = 0;
+    
+    function stemGrow(){
+        stemPosition = stemPosition - 1.8;
+        stem.style.transform = "translateY("+stemPosition+"%)";
+    }
+    
+    var exitButton;
+    exitButton = document.querySelector("#exit");
+    exitButton.addEventListener("click", hideGameShowEnd, false);
+    
+    function hideGameShowEnd(){
+        myGameScreen.style.display = "none";
+        myEndScreen.style.display = "block";
+    }
+    
+    var homeButton;
+    homeButton = document.querySelector("#homeButton");
+    homeButton.addEventListener("click", hideEndShowStart, false);
+    
+    function hideEndShowStart(){
+        myEndScreen.style.display = "none";
+        myStartScreen.style.display = "block";
+    }
+    
+    var playAgain;
+    playAgain = document.querySelector("#playAgain");
+    playAgain.addEventListener("click", hideEndShowGame, false);
+    
+    function hideEndShowGame(){
+        myEndScreen.style.display = "none";
         myGameScreen.style.display = "block";
     }
 
+var myScissors;
+    myScissors = document.querySelector("#scissors");
+    myScissors.addEventListener("dblclick", trimFlower, false);
+    
+    function trimFlower(){
+        stemPosition = stemPosition + 1.8;
+        stem.style.transform = "translateY("+stemPosition+"%)";
+        flowerTopPosition = flowerTopPosition + 20;
+        flowerTop.style.transform = "translateY("+flowerTopPosition+"%)";
+    }
+    
+    var workflow;
+    workflow = document.querySelector("#workflow");
+    workflow.addEventListener("click", hideStartShowWork, false)
+    
+    function hideStartShowWork(){
+        myStartScreen.style.display = "none";
+        workflowScreen.style.display = "block";
+    }
+    
+    var workFlowExit;
+    workFlowExit = document.querySelector("#workflowExit");
+    workFlowExit.addEventListener("click", hideWorkShowStart, false);
+    
+    function hideWorkShowStart(){
+        workflowScreen.style.display = "none";
+        myStartScreen.style.display = "block";
+    }
 </script>
 </html>
